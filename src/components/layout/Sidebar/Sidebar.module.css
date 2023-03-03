@@ -1,0 +1,18 @@
+.sidebar {
+  position: absolute;
+  width: 100%;
+}
+
+@media (min-width: 575px) {
+  .darkmode_button {
+    display: none;
+  }
+}
+.darkmode_button {
+  padding: 0px !important;
+  position: fixed;
+  bottom: 43px;
+}
+.buttonContainer {
+  padding: 20px 0px 0px 25px;
+}

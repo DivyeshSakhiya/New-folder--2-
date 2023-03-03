@@ -4,6 +4,5 @@ export declare namespace INavLinkProps {
     title: string;
     pathName: string;
     currentPathName: string;
-    isActiveBorder?:boolean
   }
 }

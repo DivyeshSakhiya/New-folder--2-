@@ -1,0 +1,5 @@
+@media (max-width: 574px) {
+  .darkmode_button {
+    display: none;
+  }
+}

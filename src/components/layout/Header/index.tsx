@@ -16,35 +16,25 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navbar, Dropdown } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { headerNavLinksData } from "../../../utils";
+import { Darkmode, headerNavLinksData, openCloseSidebar } from "../../../utils";
 import { HeaderLogo } from "./HeaderStyle";
 import { CustomNavLink, PrimaryButton } from "../../elements";
+import clsx from "clsx";
+import styles from "./Header.module.css";
 
 const Header = () => {
   const router = useLocation();
-  const Darkmode = () => {
-    document.querySelector(".app")?.classList.toggle("dark-theme");
-    document.querySelector(".app")?.classList.remove("light-theme");
-  };
-
-  const openCloseSidebar = () => {
-    document.querySelector("body")?.classList.toggle("sidenav-toggled");
-  };
-
   return (
     <Navbar className="main-header side-header sticky nav-item">
       <HeaderLogo className="main-sidebar-header active">
-        <Link
-          className="header-logo active"
-          to={`${process.env.PUBLIC_URL}/`}
-        >
+        <Link className="header-logo active" to={`${process.env.PUBLIC_URL}/`}>
           <img
             src={require("../../../assets/img/brand/Nova.png")}
             className="main-logo  desktop-logo"
             alt="logo"
           />
           <img
-            src={require("../../../assets/img/brand/Nova.png")}
+            src={require("../../../assets/img/brand/Nova_White_logo.png")}
             className="main-logo  desktop-dark"
             alt="logo"
           />
@@ -68,34 +58,28 @@ const Header = () => {
         </div>
         <div className="main-header-left">
           <div className="responsive-logo">
-            <Link
-              to={`${process.env.PUBLIC_URL}/`}
-              className="header-logo"
-            >
+            <Link to={`${process.env.PUBLIC_URL}/`} className="header-logo">
               <img
                 src={require("../../../assets/img/brand/Nova.png")}
                 className="mobile-logo logo-1"
                 alt="logo"
               />
               <img
-                src={require("../../../assets/img/brand/Nova.png")}
+                src={require("../../../assets/img/brand/Nova_White_logo.png")}
                 className="mobile-logo dark-logo-1"
                 alt="logo"
               />
             </Link>
           </div>
           <div className="logo-horizontal">
-            <Link
-              to={`${process.env.PUBLIC_URL}/`}
-              className="header-logo"
-            >
+            <Link to={`${process.env.PUBLIC_URL}/`} className="header-logo">
               <img
                 src={require("../../../assets/img/brand/Nova.png")}
                 className="mobile-logo logo-1"
                 alt="logo"
               />
               <img
-                src={require("../../../assets/img/brand/Nova.png")}
+                src={require("../../../assets/img/brand/Nova_White_logo.png")}
                 className="mobile-logo dark-logo-1"
                 alt="logo"
               />
@@ -122,20 +106,12 @@ const Header = () => {
         </div>
 
         <div className="main-header-right">
-          {/* <Navbar.Toggle
-            className="navresponsive-toggler d-lg-none ms-auto"
-            type="button"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsisVertical}
-              className="navbar-toggler-icon"
-              size="xs"
-            />
-          </Navbar.Toggle> */}
           <div className="mb-0 navbar-expand-lg navbar-nav-right responsive-navbar navbar-dark p-0">
             <Navbar.Collapse className="collapse" id="navbarSupportedContent-4">
               <ul className="nav nav-item header-icons navbar-nav-right">
-                <li className="dropdown nav-item">
+                <li
+                  className={clsx("dropdown nav-item", styles.darkmode_button)}
+                >
                   <Link
                     to="#"
                     className="new nav-link theme-layout nav-link-bg layout-setting"

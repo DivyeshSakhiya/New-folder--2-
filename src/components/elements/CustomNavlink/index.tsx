@@ -11,14 +11,12 @@ const CustomNavLink: React.FC<INavLinkProps.IProps> = ({
   title,
   pathName,
   currentPathName,
-  isActiveBorder = false,
 }) => {
   const closeSiderBar = () => {
     document.querySelector("body")?.classList.remove("sidenav-toggled");
   };
   return (
     <CNavLink
-      isActiveBorder={isActiveBorder}
       to={pathName}
       isActive={currentPathName === pathName}
       key={title}
@@ -39,8 +37,6 @@ export const CNavLink = styled(NavLink)<{
   display: flex;
   padding: 10px 0px;
   text-align: right;
-  border-right: ${({ isActive, isActiveBorder }) =>
-    isActive && isActiveBorder && "3px solid var(--primary-bg-color);"};
   div {
     color: ${({ isActive }) =>
       isActive && "var(--primary-bg-color) !important"};
